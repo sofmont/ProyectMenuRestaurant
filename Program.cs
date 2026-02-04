@@ -10,11 +10,10 @@ namespace ProyectMenuRestaurant
     {
         static void Main(string[] args)
         {
-            int opcion;
+            int opcion = 0;
             double total = 0;
-            List<string> pedido = new List<string>();
 
-            do
+            while (opcion != 5)
             {
                 Console.Clear();
                 Console.WriteLine("  BIENVENIDO A MEX & CO  ");
@@ -32,50 +31,24 @@ namespace ProyectMenuRestaurant
                 switch (opcion)
                 {
                     case 1:
-                        pedido.Add("Hamburguesa - $80");
                         total += 80;
                         break;
                     case 2:
-                        pedido.Add("Pizza - $120");
                         total += 120;
                         break;
                     case 3:
-                        pedido.Add("Tacos - $60");
                         total += 60;
                         break;
                     case 4:
-                        pedido.Add("Refresco - $25");
                         total += 25;
                         break;
-                    case 5:
-                        Console.WriteLine("\nFinalizando pedido...");
-                        break;
-                    default:
-                        Console.WriteLine("Opción no válida");
-                        break;
                 }
 
-                if (opcion != 5)
-                {
-                    Console.WriteLine("\nProducto agregado al pedido.");
-                    Console.WriteLine("Presione una tecla para continuar...");
-                    Console.ReadKey();
-                }
-
-            } while (opcion != 5);
-
-            Console.Clear();
-            Console.WriteLine(" RESUMEN DE TU PEDIDO ");
-            Console.WriteLine("-------------------------");
-
-            foreach (string item in pedido)
-            {
-                Console.WriteLine(item);
+                Console.WriteLine("Total actual: $" + total);
+                Console.WriteLine();
             }
 
-            Console.WriteLine("-------------------------");
-            Console.WriteLine($"TOTAL A PAGAR: ${total}");
-            Console.WriteLine("\n¡Gracias por tu compra!");
+            Console.WriteLine("Total a pagar: $" + total);
             Console.ReadKey();
         }
     }
